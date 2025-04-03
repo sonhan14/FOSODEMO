@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import {
     View,
     Text,
-    StyleSheet,
     TouchableOpacity,
     TouchableWithoutFeedback,
 } from 'react-native';
@@ -13,7 +12,7 @@ import Animated, {
     useAnimatedStyle,
     withTiming,
 } from 'react-native-reanimated';
-import { height, width } from '../../constants/constants.ts';
+import { width } from '../../constants/constants.ts';
 import StatusItem from '../StatusItem.tsx';
 import { useSidebarLogic } from '../../hooks/useSidebarLogic.ts';
 import OrderList from '../OrderList.tsx';

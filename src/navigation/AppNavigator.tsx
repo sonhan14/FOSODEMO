@@ -1,7 +1,6 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import ProductScreen from '../screens/ProductScreen';
 import {ICONS_MAP} from "../constants/bottomIcon.ts";
 import {tabScreens} from "./tabConfig.ts";
 import {StyleSheet} from 'react-native';
