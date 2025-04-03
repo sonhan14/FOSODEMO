@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, StatusBar } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import {styles} from "./HeaderComponent.styles.ts";
 
 interface HeaderProps {
     title: string;
@@ -28,24 +29,5 @@ const HeaderComponent: React.FC<HeaderProps> = ({ title, onMenuPress, onScanPres
     );
 };
 
-const styles = StyleSheet.create({
-    safeArea: {
-        backgroundColor: '#007AFF',
-    },
-    header: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        paddingHorizontal: 10,
-    },
-    title: {
-        color: 'white',
-        fontSize: 18,
-        fontWeight: 'bold',
-    },
-    iconContainer: {
-        padding: 8,
-    },
-});
 
 export default HeaderComponent;

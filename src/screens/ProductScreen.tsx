@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import { Button } from 'react-native-elements';
-import HeaderComponent from '../components/HeaderComponent';
+import HeaderComponent from '../components/HeaderComponent/HeaderComponent.tsx';
 import Icon from 'react-native-vector-icons/AntDesign';
-import LeftMenuBar from '../components/LeftMenuBar';
+import LeftMenuBar from '../components/LeftMenuBar/LeftMenuBar.tsx';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 const ProductScreen = () => {

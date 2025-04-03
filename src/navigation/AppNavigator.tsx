@@ -2,29 +2,17 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import ProductScreen from '../screens/ProductScreen';
+import {ICONS_MAP} from "../constants/bottomIcon.ts";
+import {tabScreens} from "./tabConfig.ts";
+import {StyleSheet} from 'react-native';
 
 const Tab = createBottomTabNavigator();
 
 const getTabBarIcon = (routeName: string) => ({ color, size }: { color: string; size: number }) => {
-    let iconName: string;
-    switch (routeName) {
-        case 'Tổng quan':
-            iconName = 'view-dashboard-outline';
-            break;
-        case 'Đơn hàng':
-            iconName = 'clipboard-text-outline';
-            break;
-        case 'Sơ đồ Gantt':
-            iconName = 'chart-timeline-variant';
-            break;
-        case 'Lệnh SX':
-            iconName = 'file-document-outline';
-            break;
-        default:
-            iconName = 'dots-horizontal';
-    }
+    const iconName = ICONS_MAP[routeName] || 'dots-horizontal';
     return <Icon name={iconName} size={size} color={color} />;
 };
+
 
 const AppNavigator = () => {
     return (
@@ -34,16 +22,21 @@ const AppNavigator = () => {
                 tabBarActiveTintColor: '#007AFF',
                 tabBarInactiveTintColor: 'gray',
                 headerShown: false,
-                tabBarStyle: { zIndex: 500 },
+                tabBarStyle: styles.tabBar,
             })}
         >
-            <Tab.Screen name="Tổng quan" component={ProductScreen} />
-            <Tab.Screen name="Đơn hàng" component={ProductScreen} />
-            <Tab.Screen name="Sơ đồ Gantt" component={ProductScreen} />
-            <Tab.Screen name="Lệnh SX" component={ProductScreen} />
-            <Tab.Screen name="Xem thêm" component={ProductScreen} />
+            {tabScreens.map(screen => (
+                <Tab.Screen key={screen.name} name={screen.name} component={screen.component} />
+            ))}
         </Tab.Navigator>
     );
 };
 
 export default AppNavigator;
+
+const styles = StyleSheet.create({
+    tabBar: {
+        zIndex: 500,
+    },
+});
+
